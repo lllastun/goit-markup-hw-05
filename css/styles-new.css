@@ -7,7 +7,6 @@
     --main-white-color: #e7e9fc;
     --light-gray-color: #f4f4fd;
     --inactive-icon: #8e8f99;
-	--success-color:#31d0aa;
     --modal-bg-color: #fcfcfc;
     --func-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --timing: 250ms;
@@ -43,6 +42,7 @@ body {
     background-color: var(--background-color);
     color: var(--main-color);
     font-family: Roboto, sans-serif;
+    font-size: 16px;
     letter-spacing: 0.02em;
     line-height: 1.5;
 }
@@ -389,15 +389,19 @@ address {
     gap: 24px;
 }
 
-.customers-icon {
+.customers-list svg {
     width: 104px;
     height: 56px;
     fill: var(--inactive-icon);
 }
-		
-.rectangle:hover .customers-icon,	
-.rectangle:focus .customers-icon {	
-    fill: var(--second-accent-color);
+
+.customers-list a {
+    color: var(--inactive-icon);
+}
+
+.rectangle:hover svg,
+.rectangle:active svg {
+    fill: currentColor;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -431,7 +435,7 @@ footer .icon-ellipse {
 
 footer .icon-ellipse:focus,
 footer .icon-ellipse:hover {
-    background-color: var(--success-color);
+    background-color: #31d0aa;
 }
 
 .social-media-wrap .icon-list {
@@ -450,7 +454,6 @@ footer .icon-ellipse:hover {
 }
 
 .social-media {
-	font-weight: 500;
     color: var(--background-color);
 }
 
