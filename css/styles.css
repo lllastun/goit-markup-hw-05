@@ -7,8 +7,9 @@
     --main-white-color: #e7e9fc;
     --light-gray-color: #f4f4fd;
     --inactive-icon: #8e8f99;
-	--success-color:#31d0aa;
+    --success-color: #31d0aa;
     --modal-bg-color: #fcfcfc;
+    --backdrop-color: rgba(46, 47, 66, 0.4);
     --func-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --timing: 250ms;
 }
@@ -394,9 +395,9 @@ address {
     height: 56px;
     fill: var(--inactive-icon);
 }
-		
-.rectangle:hover .customers-icon,	
-.rectangle:focus .customers-icon {	
+
+.rectangle:hover .customers-icon,
+.rectangle:focus .customers-icon {
     fill: var(--second-accent-color);
 }
 
@@ -450,7 +451,7 @@ footer .icon-ellipse:hover {
 }
 
 .social-media {
-	font-weight: 500;
+    font-weight: 500;
     color: var(--background-color);
 }
 
@@ -536,26 +537,29 @@ footer .icon-ellipse:hover {
 }
 .project-img {
     position: relative;
+    overflow: hidden;
 }
 
-.overlay {
+.rolling-text {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: var(--accent-color);
     top: 100%;
-    overflow: hidden;
+    left: 0;
     color: var(--light-gray-color);
     line-height: 1.5;
     padding: 40px 32px;
+    transform: translate(0, 0);
+    transition: transform var(--timing) var(--func-timing);
 }
 
-.works-item:hover .overlay,
-.works-item:focus .overlay {
+.works-item-link:hover .rolling-text,
+.works-item-link:focus .rolling-text {
     /* opacity: 0; */
     transform: translate(0, -100%);
-    transition: var(--timing) transform var(--func-timing);
 }
+
 /* -------------------------------------------------------------------------- */
 /*                                   =======                                  */
 /* ------------------------------------------------------------------------- */
@@ -566,23 +570,62 @@ footer .icon-ellipse:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(46, 47, 66, 0.4);
+    background-color: var(--backdrop-color);
+    opacity: 1;
+    transition: opacity var(--timing) var(--func-timing);
 }
 
 .backdrop.is-hidden {
     opacity: 0;
-    pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
 
-    min-height: 408px;
-    min-width: 576px;
-
+    height: 576px;
+    width: 408px;
     border-radius: 4px;
+    padding: 24px;
+
     background-color: var(--modal-bg-color);
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform var(--timing) var(--func-timing);
+}
+
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-close-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    top: 24px;
+    right: 24px;
+    /* margin: 8px; */
+
+    background-color: var(--main-white-color);
+
+    transition: background-color var(--timing) var(--func-timing),
+        fill var(--timing) var(--func-timing);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    background-color: var(--second-accent-color);
+    fill: #ffffff;
 }
