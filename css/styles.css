@@ -1,15 +1,15 @@
 :root {
-    --main-color: #434455;
-    --second-color: #2e2f42;
-    --accent-color: #4d5ae5;
-    --second-accent-color: #404bbf;
     --background-color: #ffffff;
     --main-white-color: #e7e9fc;
     --light-gray-color: #f4f4fd;
-    --inactive-icon: #8e8f99;
-    --success-color: #31d0aa;
     --modal-bg-color: #fcfcfc;
+    --success-color: #31d0aa;
+    --accent-color: #4d5ae5;
+    --second-accent-color: #404bbf;
+    --inactive-icon: #8e8f99;
     --backdrop-color: rgba(46, 47, 66, 0.4);
+    --main-color: #434455;
+    --second-color: #2e2f42;
     --func-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --timing: 250ms;
 }
@@ -133,6 +133,7 @@ body {
 .contacts-list .link:hover,
 .contacts-list .link:focus {
     color: var(--second-accent-color);
+    transition: color var(--timing) var(--func-timing);
 }
 
 .contacts-list a {
@@ -381,7 +382,6 @@ address {
 
 .rectangle:hover,
 .rectangle:focus {
-    color: var(--second-accent-color);
     border: 1px solid var(--second-accent-color);
 }
 
@@ -617,6 +617,7 @@ footer .icon-ellipse:hover {
     top: 24px;
     right: 24px;
     /* margin: 8px; */
+    cursor: pointer;
 
     background-color: var(--main-white-color);
 
