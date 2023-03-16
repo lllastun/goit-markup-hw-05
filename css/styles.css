@@ -420,7 +420,7 @@ address {
     width: 264px;
 }
 
-footer .icon-ellipse {
+.footer-icon-ellipse {
     display: flex;
     height: 40px;
     width: 40px;
@@ -430,8 +430,8 @@ footer .icon-ellipse {
     align-items: center;
 }
 
-footer .icon-ellipse:focus,
-footer .icon-ellipse:hover {
+.footer-icon-ellipse:focus,
+.footer-icon-ellipse:hover {
     background-color: var(--success-color);
 }
 
