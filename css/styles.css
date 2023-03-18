@@ -139,6 +139,7 @@ body {
 .contacts {
     font-style: normal;
     color: var(--main-color);
+    transition: color var(--timing) var(--func-timing);
 }
 
 .header-wrap {
